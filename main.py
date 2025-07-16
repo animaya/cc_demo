@@ -27,6 +27,37 @@ RANDOM_MESSAGES = [
     "There are only 10 types of people in the world: those who understand binary and those who don't"
 ]
 
+# Pool of random emoji to insert
+RANDOM_EMOJI = [
+    "😀", "😃", "😄", "😁", "😆", "😅", "😂", "🤣", "😊", "😇",
+    "🙂", "🙃", "😉", "😌", "😍", "🥰", "😘", "😗", "😙", "😚",
+    "😋", "😛", "😝", "😜", "🤪", "🤨", "🧐", "🤓", "😎", "🤩",
+    "🥳", "😏", "😒", "😞", "😔", "😟", "😕", "🙁", "☹️", "😣",
+    "😖", "😫", "😩", "🥺", "😢", "😭", "😤", "😠", "😡", "🤬",
+    "🤯", "😳", "🥵", "🥶", "😱", "😨", "😰", "😥", "😓", "🤗",
+    "🤔", "🤭", "🤫", "🤥", "😶", "😐", "😑", "😬", "🙄", "😯",
+    "🚀", "🌟", "⭐", "🔥", "💯", "✨", "🎉", "🎊", "🎈", "🎁",
+    "🏆", "🥇", "🥈", "🥉", "🏅", "🎖️", "🏵️", "🎗️", "🎟️", "🎫",
+    "🎪", "🎭", "🎨", "🎬", "🎤", "🎧", "🎼", "🎵", "🎶", "🎹"
+]
+
+def add_random_emoji(message: str) -> str:
+    """Insert random emoji at random positions in the message"""
+    words = message.split()
+    
+    # Randomly decide how many emoji to add (1-3 emoji)
+    num_emoji = random.randint(1, 3)
+    
+    for _ in range(num_emoji):
+        # Choose a random emoji
+        emoji = random.choice(RANDOM_EMOJI)
+        
+        # Choose a random position to insert the emoji
+        position = random.randint(0, len(words))
+        words.insert(position, emoji)
+    
+    return " ".join(words)
+
 @app.get("/")
 async def root():
     """Health check endpoint"""
@@ -37,7 +68,8 @@ async def generate_random_messages() -> AsyncGenerator[str, None]:
     while True:
         timestamp = time.strftime("%d/%m/%y")
         base_message = random.choice(RANDOM_MESSAGES)
-        message = f"{timestamp} {base_message}"
+        message_with_emoji = add_random_emoji(base_message)
+        message = f"{timestamp} {message_with_emoji}"
         
         # Format as Server-Sent Events
         data = {

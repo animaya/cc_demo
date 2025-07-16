@@ -35,8 +35,9 @@ async def root():
 async def generate_random_messages() -> AsyncGenerator[str, None]:
     """Generate random messages with timestamps"""
     while True:
-        message = random.choice(RANDOM_MESSAGES)
-        timestamp = time.strftime("%Y-%m-%d %H:%M:%S")
+        timestamp = time.strftime("%d/%m/%y")
+        base_message = random.choice(RANDOM_MESSAGES)
+        message = f"{timestamp} {base_message}"
         
         # Format as Server-Sent Events
         data = {

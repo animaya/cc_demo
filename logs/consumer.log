@@ -1,0 +1,8 @@
+::ffff:127.0.0.1 - - [15/Jul/2025 23:00:25] "GET / HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [15/Jul/2025 23:00:25] "GET /styles.css HTTP/1.1" 304 -
+::ffff:127.0.0.1 - - [15/Jul/2025 23:00:25] "GET /script.js HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Jul/2025 23:00:37] "GET / HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Jul/2025 23:00:37] "GET /styles.css HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Jul/2025 23:00:37] "GET /script.js HTTP/1.1" 200 -
+::ffff:127.0.0.1 - - [15/Jul/2025 23:00:37] code 404, message File not found
+::ffff:127.0.0.1 - - [15/Jul/2025 23:00:37] "GET /favicon.ico HTTP/1.1" 404 -

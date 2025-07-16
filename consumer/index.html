@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Message Stream Consumer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🌊 Live Message Stream</h1>
+            <div class="status-bar">
+                <div class="status-indicator" id="status">
+                    <span class="status-dot" id="statusDot"></span>
+                    <span id="statusText">Disconnected</span>
+                </div>
+                <div class="controls">
+                    <button id="clearBtn" class="btn btn-secondary">Clear</button>
+                    <button id="connectBtn" class="btn btn-primary">Connect</button>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-label">Messages:</span>
+                    <span class="stat-value" id="messageCount">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Connected:</span>
+                    <span class="stat-value" id="connectionTime">--</span>
+                </div>
+            </div>
+
+            <div class="messages-container">
+                <div id="messages" class="messages"></div>
+                <div id="noMessages" class="no-messages">
+                    <p>🎯 Click "Connect" to start receiving messages</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
